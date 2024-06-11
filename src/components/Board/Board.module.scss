@@ -1,0 +1,26 @@
+.boardWrapper {
+    border: 1px outset var(--primary);
+    display: flex;
+    gap: var(--spacing-medium);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: white;
+    padding: var(--spacing-large);
+    background-color: var(--bluedark);
+    box-shadow: 2px 7px 10px 3px var(--gray);
+    position: relative;
+    height: fit-content;
+    border-radius: 4px;
+
+    .logo {
+        top: -90px;
+        position: absolute;
+        width: 120px;
+    }
+
+    & p {
+        text-align: center;
+    }
+}

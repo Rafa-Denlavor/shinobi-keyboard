@@ -1,0 +1,15 @@
+.defaultButton {
+  font-size: 20px;
+  padding: var(--spacing-small) var(--spacing-XLarge);
+  cursor: pointer;
+}
+
+.default {
+  background-color: var(--primary);
+  border: 1px solid var(--secondary-color);
+}
+
+.cancel {
+  color: var(--gray);
+  background-color: var(--border-color);
+}
