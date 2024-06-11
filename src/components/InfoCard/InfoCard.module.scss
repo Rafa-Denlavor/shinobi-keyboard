@@ -1,0 +1,13 @@
+.infocardWrapper {
+  width: 90%;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  border: 2px outset var(--gray);
+  padding: var(--spacing-medium);
+
+  & p {
+    margin-top: var(--spacing-medium);
+    color: var(--primary);
+  }
+}

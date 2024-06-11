@@ -2,7 +2,7 @@
   border: none;
   border-radius: 4px;
   font-size: 20px;
-  padding: var(--spacing-small) var(--spacing-XLarge);
+  padding: var(--spacing-small) var(--spacing-large);
   cursor: pointer;
 }
 
@@ -15,4 +15,5 @@
 .cancel {
   color: var(--gray);
   background-color: var(--graydark);
+  border: 2px solid var(--gray)
 }

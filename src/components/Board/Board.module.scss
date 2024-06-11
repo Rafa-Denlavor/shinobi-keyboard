@@ -1,40 +1,36 @@
-.main {
-  block-size: 100vh;
+.boardWrapper {
+  max-width: 480px;
+  width: 480px;
+  border: 1px outset var(--primary);
   display: flex;
+  gap: var(--spacing-medium);
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  color: white;
+  padding: var(--spacing-large);
   background-color: var(--bluedark);
+  box-shadow: 4px 7px 10px 3px var(--gray);
+  position: relative;
+  height: fit-content;
+  border-radius: 4px;
 
-  .boardWrapper {
-    max-width: 480px;
-    width: 480px;
-    border: 1px outset var(--primary);
-    display: flex;
-    gap: var(--spacing-medium);
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    color: white;
-    padding: var(--spacing-large);
-    background-color: var(--bluedark);
-    box-shadow: 4px 7px 10px 3px var(--gray);
-    position: relative;
-    height: fit-content;
-    border-radius: 4px;
+  .logo {
+    top: -93px;
+    position: absolute;
+    width: 120px;
+  }
 
-    .logo {
-      top: -93px;
-      position: absolute;
-      width: 120px;
-    }
+  & h1 {
+    margin-bottom: var(--spacing-small);
+  }
 
-    & h1 {
-      margin-bottom: var(--spacing-small);
-    }
+  & p {
+    text-align: center;
+  }
 
-    & p {
-      text-align: center;
-    }
+  .cancelButton {
+    margin-right: var(--spacing-medium);
   }
 }

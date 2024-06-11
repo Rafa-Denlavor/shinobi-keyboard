@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Status } from "../Board/Enum";
 import { PanelProps } from "./TPanelProps";
 
-function usePanel({changeStatus, changeScore} : PanelProps) {
+function usePanel({ changeStatus, changeScore }: PanelProps) {
   const [level, setLevel] = useState(1);
   const [caracters, setCaracters] = useState<Array<string>>([]);
   const [typedCharacters, setTypedCharacters] = useState<Array<string>>([]);
@@ -17,7 +17,7 @@ function usePanel({changeStatus, changeScore} : PanelProps) {
     }
 
     setCaracters(randomCharacters);
-  }, [level]);
+  }, []);
 
   const handleKeyDown = useCallback(
     (event: { key: string }) => {
@@ -42,12 +42,12 @@ function usePanel({changeStatus, changeScore} : PanelProps) {
         }
       }
     },
-    [event, caracters, typedCharacters]
+    [caracters, typedCharacters, changeScore, changeStatus]
   );
 
   useEffect(() => {
     generateRandomCharacters();
-  }, [level]);
+  }, [level, generateRandomCharacters]);
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);

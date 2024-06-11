@@ -1,5 +1,5 @@
-import Board from "../components/Board";
+import KeyboardGame from "../view";
 
 export default function BoardPage() {
-  return <Board />;
+  return <KeyboardGame />;
 }
