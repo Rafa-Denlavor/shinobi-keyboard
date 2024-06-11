@@ -24,7 +24,7 @@ function usePanel({changeStatus, changeScore} : PanelProps) {
       const newCharacter = event.key.toUpperCase();
       setTypedCharacters((prev) => [...prev, newCharacter]);
 
-      if (typedCharacters.length === 5) {
+      if (typedCharacters.length === 6) {
         const isCorrect = caracters.every((caracter, index) => {
           if (caracter === typedCharacters[index]) {
             changeScore((prev: number) => prev + 1);
