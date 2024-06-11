@@ -1,5 +1,5 @@
-import Game from "../views";
+import Board from "../components/Board";
 
-export default function GamePage() {
-  return <Game />;
+export default function BoardPage() {
+  return <Board />;
 }

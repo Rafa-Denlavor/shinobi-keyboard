@@ -1,0 +1,26 @@
+.panelWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+
+  .level {
+    font-size: 24px;
+    color: var(--blue);
+  }
+
+  .caractersContainer {
+    display: flex;
+    gap: var(--spacing-small);
+
+    .caracter {
+      text-align: center;
+      width: 45px;
+      border: 2px solid var(--gray);
+      border-radius: 4px;
+      padding: var(--spacing-small);
+      background-color: var(--graydark);
+      font-size: 30px;
+      text-transform: uppercase;
+    }
+  }
+}

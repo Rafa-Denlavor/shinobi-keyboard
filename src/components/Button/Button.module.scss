@@ -1,15 +1,18 @@
 .defaultButton {
+  border: none;
+  border-radius: 4px;
   font-size: 20px;
   padding: var(--spacing-small) var(--spacing-XLarge);
   cursor: pointer;
 }
 
 .default {
+  color: var(--secondary-color);
   background-color: var(--primary);
   border: 1px solid var(--secondary-color);
 }
 
 .cancel {
   color: var(--gray);
-  background-color: var(--border-color);
+  background-color: var(--graydark);
 }

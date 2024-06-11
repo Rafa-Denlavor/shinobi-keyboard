@@ -1,4 +1,13 @@
-.boardWrapper {
+.main {
+  block-size: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bluedark);
+
+  .boardWrapper {
+    max-width: 480px;
+    width: 480px;
     border: 1px outset var(--primary);
     display: flex;
     gap: var(--spacing-medium);
@@ -9,18 +18,23 @@
     color: white;
     padding: var(--spacing-large);
     background-color: var(--bluedark);
-    box-shadow: 2px 7px 10px 3px var(--gray);
+    box-shadow: 4px 7px 10px 3px var(--gray);
     position: relative;
     height: fit-content;
     border-radius: 4px;
 
     .logo {
-        top: -90px;
-        position: absolute;
-        width: 120px;
+      top: -93px;
+      position: absolute;
+      width: 120px;
+    }
+
+    & h1 {
+      margin-bottom: var(--spacing-small);
     }
 
     & p {
-        text-align: center;
+      text-align: center;
     }
+  }
 }
