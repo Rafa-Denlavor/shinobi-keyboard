@@ -1,30 +1,11 @@
-# React + TypeScript + Vite
+# Ninja Keyboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Minigame de digitação para desafio técnico e exploração de boas práticas de desenvolvimento.
 
-Currently, two official plugins are available:
+## Pontos técnicos:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Escolha do servidor de desenvolvimento:** Optei pelo Vite.js ao invés do Next.js, pois é um minigame simples que não precisa de funcionalidades muito complexas que utilizem contextos, provedores, técnicas avançadas de SEO, rotas dinâmicas, serveless, entre outras. 
+- **Tecnologia**: Utilizei Typescript para facilitar a leitura do código e o reconhecimento dos tipos das propriedades sem a necessidade de rodar o projeto. Outra alternativa seria a utilização da biblioteca Proptypes, no entanto, seria fácil esquecer de atualizar os tipos (já que não retorna um erro caso falte uma propriedade) e aquele código não seria mais confiável.
+- **Framework:** Optei pelo React.js, pois o desafio pedia a tecnologia e até mesmo pela reutilização de componentes, no entanto, poderia ser adaptado para utilizar HTML, CSS e Javascript sem grandes problemas por ser um projeto simples.
+- **Utilização de enum:** Enums são valiosos quando um dado pode ter muitos valores diferentes e é necessário reutilizar esses valores em outros lugares do projeto.
+- **Versões do node e npm**: No package.json é possível identificar quais versões do Node e do npm são aceitas pra rodar o projeto. Dessa forma, evitamos problemas na instalação de dependências e a informação não é centralizado somente em uma pessoa.

@@ -26,14 +26,19 @@ function Board() {
         </>
       )}
       {status === Status.PLAYING && (
-        <Panel changeStatus={setStatus} changeScore={setScore} />
+        <Panel
+          status={status}
+          changeStatus={setStatus}
+          changeScore={setScore}
+        />
       )}
-      {status === Status.FINISHED && (
+      {(status === Status.FINISHED || status === Status.TIME_UP) && (
         <>
           <p>Score: {score}</p>
           <p>
-            Continue treinando e você dominará o teclado como um verdadeiro
-            Ninja Keyboard!
+            {status === Status.TIME_UP
+              ? "O tempo esgotou, mas continua treinando para se tornar um Ninja Keyboard"
+              : "Continue treinando e você dominará o teclado como um verdadeiro Ninja Keyboard!"}
           </p>
           <div>
             <Button
