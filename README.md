@@ -1,6 +1,21 @@
+<img src="public/images/ninja.svg" width="120px" >
+
 # Ninja Keyboard
 
 Minigame de digitação para desafio técnico e exploração de boas práticas de desenvolvimento.
+
+## Lógica do Minigame:
+
+1. Ao iniciar o jogo, uma sequência aleatória de teclas (por exemplo, letras de A a Z) deve ser gerada e exibida ao jogador.
+2. O jogador deve pressionar as teclas na ordem correta dentro de um tempo limite.
+3. Se o jogador pressionar a tecla correta, a próxima tecla da sequência deve ser destacada.
+4. Se o jogador pressionar a tecla errada ou o tempo acabar, o jogo deve terminar e o jogador deve ser notificado.
+
+## Requisitos:
+
+- A tela principal deve exibir a sequência atual de teclas que o jogador precisa pressionar.
+- Um indicador de tempo deve mostrar quanto tempo resta para completar a sequência.
+- Feedback visual para indicar se a tecla pressionada foi correta ou não.
 
 ## Pontos técnicos:
 
