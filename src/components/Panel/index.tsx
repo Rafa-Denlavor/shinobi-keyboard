@@ -1,9 +1,10 @@
 import usePanel from "./usePanel";
 import styles from "./Panel.module.scss";
 import { PanelProps } from "./TPanelProps";
+import Timer from "../Timer";
 
 function Panel({ status, changeStatus, changeScore }: Readonly<PanelProps>) {
-  const { level, caracters, mustPaint } = usePanel({
+  const { level, secondsLeft, caracters, typedCharacters } = usePanel({
     status,
     changeStatus,
     changeScore,
@@ -18,14 +19,16 @@ function Panel({ status, changeStatus, changeScore }: Readonly<PanelProps>) {
           return (
             <span
               key={caracter + key}
-              className={`${styles.caracter} ${styles[mustPaint[key]]}`}
+              className={`${styles.caracter} ${
+                typedCharacters[key] && styles.toPaint
+              }`}
             >
               {caracter}
             </span>
           );
         })}
       </div>
-      <progress style={{ width: "100%" }} value="4" max="5"></progress>
+      <Timer remainingTime={secondsLeft} duration={5} />
     </div>
   );
 }
