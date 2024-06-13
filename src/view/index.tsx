@@ -5,9 +5,10 @@ import InfoCard from "../components/InfoCard";
 
 export default function KeyboardGame() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const MOBILE_AND_TABLET = 768;
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768);
+    setIsMobile(window.innerWidth <= MOBILE_AND_TABLET);
   };
 
   useEffect(() => {

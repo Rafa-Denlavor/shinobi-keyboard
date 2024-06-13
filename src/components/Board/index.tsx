@@ -4,6 +4,14 @@ import styles from "./Board.module.scss";
 import { Status } from "../../enums/Status";
 import Panel from "../Panel";
 import { DifficultyBySeconds } from "../../enums/DifficultyBySeconds";
+import AudioPlayer from "../AudioPlayer";
+
+const difficultyLabel = {
+  [DifficultyBySeconds.EASY]: "Fácil",
+  [DifficultyBySeconds.MEDIUM]: "Médio",
+  [DifficultyBySeconds.HARD]: "Difícil",
+  [DifficultyBySeconds.NINJA]: "Ninja",
+};
 
 function Board() {
   const [score, setScore] = useState<number>(0);
@@ -28,38 +36,19 @@ function Board() {
           </p>
           <p>Escolha a dificuldade:</p>
           <div className={styles.initialButtons}>
-            <Button
-              onClick={() => {
-                setTimeDifficulty(DifficultyBySeconds.EASY);
-                setStatus(Status.PLAYING);
-              }}
-            >
-              Fácil
-            </Button>
-            <Button
-              onClick={() => {
-                setTimeDifficulty(DifficultyBySeconds.MEDIUM);
-                setStatus(Status.PLAYING);
-              }}
-            >
-              Médio
-            </Button>
-            <Button
-              onClick={() => {
-                setTimeDifficulty(DifficultyBySeconds.HARD);
-                setStatus(Status.PLAYING);
-              }}
-            >
-              Difícil
-            </Button>
-            <Button
-              onClick={() => {
-                setTimeDifficulty(DifficultyBySeconds.NINJA);
-                setStatus(Status.PLAYING);
-              }}
-            >
-              Ninja
-            </Button>
+            {Object.entries(DifficultyBySeconds).map((data) => {
+              return (
+                <Button
+                  key={data[0]}
+                  onClick={() => {
+                    setTimeDifficulty(data[1]);
+                    setStatus(Status.PLAYING);
+                  }}
+                >
+                  {difficultyLabel[data[1]]}
+                </Button>
+              );
+            })}
           </div>
         </>
       )}
@@ -73,6 +62,7 @@ function Board() {
       )}
       {(status === Status.FINISHED || status === Status.TIME_UP) && (
         <>
+          <AudioPlayer soundEffect="finished.mp3" />          
           <p>Score: {score}</p>
           <p>
             {status === Status.TIME_UP
@@ -87,9 +77,7 @@ function Board() {
                 setScore(0);
                 setStatus(Status.INITIAL);
               }}
-            >
-              Sair
-            </Button>
+            />
             <Button
               onClick={() => {
                 setScore(0);

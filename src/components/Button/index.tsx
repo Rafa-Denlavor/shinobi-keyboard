@@ -2,7 +2,7 @@ import styles from "./Button.module.scss";
 
 type ButtonProps = {
   customClass?: string;
-  children: string;
+  children?: string;
   type?: string;
   onClick: () => void;
 };
@@ -12,13 +12,13 @@ export default function Button({
   children,
   onClick,
   type = "default",
-}: ButtonProps): React.ReactNode {
+}: Readonly<ButtonProps>): React.ReactNode {
   return (
     <button
       className={`${styles.defaultButton} ${styles[type]} ${customClass}`}
       onClick={onClick}
     >
-      {children}
+      {type === "cancel" ? "Sair" : children}
     </button>
   );
 }

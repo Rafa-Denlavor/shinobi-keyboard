@@ -4,6 +4,7 @@ import { PanelProps } from "./TPanelProps";
 import Timer from "../Timer";
 import { Status } from "../../enums/Status";
 import Button from "../Button";
+import AudioPlayer from "../AudioPlayer";
 
 function Panel({
   timeDifficulty,
@@ -25,14 +26,19 @@ function Panel({
       <div className={styles.caractersContainer}>
         {caracters.map((caracter, key) => {
           return (
-            <span
-              key={caracter + key}
-              className={`${styles.caracter} ${
-                typedCharacters[key] && styles.toPaint
-              }`}
-            >
-              {caracter}
-            </span>
+            <>
+              <span
+                key={caracter + key}
+                className={`${styles.caracter} ${
+                  typedCharacters[key] && styles.toPaint
+                }`}
+              >
+                {caracter}
+              </span>
+              {typedCharacters[key] && (
+                <AudioPlayer soundEffect="next.mp3" />
+              )}
+            </>
           );
         })}
       </div>
@@ -44,9 +50,7 @@ function Panel({
           changeScore(0);
           changeStatus(Status.INITIAL);
         }}
-      >
-        Sair
-      </Button>
+      />
     </div>
   );
 }

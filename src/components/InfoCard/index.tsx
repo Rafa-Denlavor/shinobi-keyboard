@@ -1,4 +1,4 @@
-import styles from './InfoCard.module.scss';
+import styles from "./InfoCard.module.scss";
 
 function InfoCard() {
   return (
