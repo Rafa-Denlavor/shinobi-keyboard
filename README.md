@@ -2,7 +2,7 @@
 
 # Ninja Keyboard
 
-Minigame de digitação para desafio técnico e exploração de boas práticas de desenvolvimento.
+Minigame de digitação.
 
 ## Lógica do Minigame:
 
