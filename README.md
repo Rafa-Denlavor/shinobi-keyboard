@@ -1,6 +1,6 @@
 <img src="public/images/ninja.svg" width="120px" >
 
-# Ninja Keyboard
+# Shinobi Keyboard
 
 Minigame de digitação.
 

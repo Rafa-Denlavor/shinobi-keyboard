@@ -2,9 +2,17 @@ import usePanel from "./usePanel";
 import styles from "./Panel.module.scss";
 import { PanelProps } from "./TPanelProps";
 import Timer from "../Timer";
+import { Status } from "../../enums/Status";
+import Button from "../Button";
 
-function Panel({ status, changeStatus, changeScore }: Readonly<PanelProps>) {
+function Panel({
+  timeDifficulty,
+  status,
+  changeStatus,
+  changeScore,
+}: Readonly<PanelProps>) {
   const { level, secondsLeft, caracters, typedCharacters } = usePanel({
+    timeDifficulty,
     status,
     changeStatus,
     changeScore,
@@ -28,7 +36,17 @@ function Panel({ status, changeStatus, changeScore }: Readonly<PanelProps>) {
           );
         })}
       </div>
-      <Timer remainingTime={secondsLeft} duration={5} />
+      <Timer remainingTime={secondsLeft} duration={timeDifficulty} />
+      <Button
+        customClass={styles.cancelButton}
+        type="cancel"
+        onClick={() => {
+          changeScore(0);
+          changeStatus(Status.INITIAL);
+        }}
+      >
+        Sair
+      </Button>
     </div>
   );
 }

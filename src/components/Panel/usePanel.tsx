@@ -1,12 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
-import { Status } from "../Board/Enum";
+import { Status } from "../../enums/Status";
 import { PanelProps } from "./TPanelProps";
 
-function usePanel({ status, changeStatus, changeScore }: PanelProps) {
+function usePanel({
+  timeDifficulty,
+  status,
+  changeStatus,
+  changeScore,
+}: PanelProps) {
   const [level, setLevel] = useState(1);
   const [caracters, setCaracters] = useState<Array<string>>([]);
   const [typedCharacters, setTypedCharacters] = useState<Array<string>>([]);
-  const [secondsLeft, setSecondsLeft] = useState<number>(5);
+  const [secondsLeft, setSecondsLeft] = useState<number>(timeDifficulty);
 
   const generateRandomCharacters = useCallback(() => {
     const lettersAndNumbers = "abcdefghijklmnopqrstuvwxyz1234567890";
@@ -66,23 +71,23 @@ function usePanel({ status, changeStatus, changeScore }: PanelProps) {
 
     if (status === Status.PLAYING) {
       intervalId = setInterval(() => {
-        setSecondsLeft((prevSeconds) => prevSeconds - 0.05);
-      }, 50);
+        setSecondsLeft(
+          (prevSeconds) => prevSeconds - Number(`0.0${timeDifficulty}`)
+        );
+      }, Number(`${timeDifficulty}0`));
 
       timeoutId = setTimeout(() => {
         changeStatus(Status.TIME_UP);
-      }, 5000);
+      }, Number(`${timeDifficulty}000`));
     }
 
     return () => {
       if (intervalId) clearInterval(intervalId);
       if (timeoutId) clearTimeout(timeoutId);
-      if (secondsLeft) setSecondsLeft(5);
+      if (secondsLeft) setSecondsLeft(timeDifficulty);
     };
-  // ATTENTION: Do not add secondsLeft as dep of the hook to avoid blocking the timer
+    // ATTENTION: Do not add secondsLeft as dep of the hook to avoid blocking the timer
   }, [level, status, changeStatus]);
-
-  console.log(secondsLeft);
 
   return {
     level,

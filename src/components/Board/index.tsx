@@ -1,12 +1,16 @@
 import { useState } from "react";
 import Button from "../Button";
 import styles from "./Board.module.scss";
-import { Status } from "./Enum";
+import { Status } from "../../enums/Status";
 import Panel from "../Panel";
+import { DifficultyBySeconds } from "../../enums/DifficultyBySeconds";
 
 function Board() {
   const [score, setScore] = useState<number>(0);
-  const [status, setStatus] = useState<string>("initial");
+  const [status, setStatus] = useState<string>(Status.INITIAL);
+  const [timeDifficulty, setTimeDifficulty] = useState<number>(
+    DifficultyBySeconds.MEDIUM
+  );
 
   return (
     <section className={styles.boardWrapper}>
@@ -15,18 +19,53 @@ function Board() {
         src="/images/ninja.svg"
         alt="Ninja de capuz"
       />
-      <h1>Ninja Keyboard</h1>
+      <h1>Shinobi Keyboard</h1>
       {status === Status.INITIAL && (
         <>
           <p>
             Experimente a emoção de digitar como um ninja e<br></br> domine o
             teclado!
           </p>
-          <Button onClick={() => setStatus(Status.PLAYING)}>Iniciar</Button>
+          <p>Escolha a dificuldade:</p>
+          <div className={styles.initialButtons}>
+            <Button
+              onClick={() => {
+                setTimeDifficulty(DifficultyBySeconds.EASY);
+                setStatus(Status.PLAYING);
+              }}
+            >
+              Fácil
+            </Button>
+            <Button
+              onClick={() => {
+                setTimeDifficulty(DifficultyBySeconds.MEDIUM);
+                setStatus(Status.PLAYING);
+              }}
+            >
+              Médio
+            </Button>
+            <Button
+              onClick={() => {
+                setTimeDifficulty(DifficultyBySeconds.HARD);
+                setStatus(Status.PLAYING);
+              }}
+            >
+              Difícil
+            </Button>
+            <Button
+              onClick={() => {
+                setTimeDifficulty(DifficultyBySeconds.NINJA);
+                setStatus(Status.PLAYING);
+              }}
+            >
+              Ninja
+            </Button>
+          </div>
         </>
       )}
       {status === Status.PLAYING && (
         <Panel
+          timeDifficulty={timeDifficulty}
           status={status}
           changeStatus={setStatus}
           changeScore={setScore}

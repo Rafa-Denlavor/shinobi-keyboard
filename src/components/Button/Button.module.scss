@@ -10,10 +10,20 @@
   color: var(--secondary-color);
   background-color: var(--primary);
   border: 1px solid var(--secondary-color);
+
+  &:hover {
+    background-color: var(--yellowdark);
+    transition-duration: 0.3s;
+  }
 }
 
 .cancel {
   color: var(--gray);
   background-color: var(--graydark);
-  border: 2px solid var(--gray)
+  border: 2px solid var(--gray);
+
+  &:hover {
+    background-color: var(--secondary-color);
+    transition-duration: 0.3s;
+  }
 }

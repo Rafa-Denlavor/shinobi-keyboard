@@ -30,6 +30,14 @@
     text-align: center;
   }
 
+  .initialButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-medium);
+    flex-wrap: wrap;
+  }
+
   .cancelButton {
     margin-right: var(--spacing-medium);
   }
