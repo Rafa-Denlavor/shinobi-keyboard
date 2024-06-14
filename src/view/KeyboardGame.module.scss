@@ -4,4 +4,20 @@
   align-items: center;
   justify-content: center;
   background-color: var(--bluedark);
+
+  .introduction {
+    animation: 2.2s ease-in-out loading;
+  }
+}
+
+@keyframes loading {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 20%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }

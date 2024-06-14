@@ -10,7 +10,7 @@ export default function KeyboardGame() {
     <main className={styles.main}>
       {isIntroduction ? (
         <img
-          className={styles.logo}
+          className={styles.introduction}
           src="/images/ninja.svg"
           alt="Ninja de capuz"
         />
