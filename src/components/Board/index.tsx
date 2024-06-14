@@ -6,24 +6,24 @@ import Panel from "../Panel";
 import { DifficultyBySeconds } from "../../enums/DifficultyBySeconds";
 import AudioPlayer from "../AudioPlayer";
 import { difficultyLabel } from "./helpers/difficultyLabel";
+import Countdown from "react-countdown";
 
 function Board() {
-  const [started, setStarted] = useState(false);
   const [score, setScore] = useState<number>(0);
   const [status, setStatus] = useState<string>(Status.INITIAL);
   const [toggleMute, setToggleMute] = useState(false);
   const [timeDifficulty, setTimeDifficulty] = useState<number>(
     DifficultyBySeconds.MEDIUM
   );
+  const THREE_SECONDS = 3000;
+  const endTime = Date.now() + THREE_SECONDS;
 
   const handleSound = () => {
-    console.log(started);
     setToggleMute(!toggleMute);
   };
 
   return (
     <section className={styles.boardWrapper}>
-      <AudioPlayer soundEffect=".mp3" muted={toggleMute} loop={true} />
       <Button
         customClass={styles.muteButton}
         onClick={handleSound}
@@ -48,8 +48,7 @@ function Board() {
                   key={data[0]}
                   onClick={() => {
                     setTimeDifficulty(data[1]);
-                    setStatus(Status.PLAYING);
-                    setStarted(true);
+                    setStatus(Status.COUNTDOWN);
                   }}
                 >
                   {difficultyLabel[data[1]]}
@@ -58,6 +57,20 @@ function Board() {
             })}
           </div>
         </>
+      )}
+      {status === Status.COUNTDOWN && (
+        <Countdown
+          date={endTime}
+          onComplete={() => {
+            setStatus(Status.PLAYING);
+          }}
+          renderer={(props) => (
+            <div className={styles.countdown}>
+              <p>Iniciando em:</p>
+              <p className={styles.time}>{props.seconds}</p>
+            </div>
+          )}
+        />
       )}
       {status === Status.PLAYING && (
         <Panel
@@ -71,7 +84,9 @@ function Board() {
       {(status === Status.FINISHED || status === Status.TIME_UP) && (
         <>
           <AudioPlayer soundEffect="finished.mp3" muted={toggleMute} />
-          <p>Score: {score}</p>
+          <p>
+            Score: <span className={styles.score}>{score}</span>
+          </p>
           <p>
             {status === Status.TIME_UP
               ? "O tempo esgotou, mas continua treinando para se tornar um Ninja Keyboard"
@@ -88,7 +103,7 @@ function Board() {
             <Button
               onClick={() => {
                 setScore(0);
-                setStatus(Status.PLAYING);
+                setStatus(Status.COUNTDOWN);
               }}
             >
               Jogar novamente

@@ -1,6 +1,7 @@
 .boardWrapper {
   max-width: 500px;
   width: 500px;
+  height: 500px;
   border: 1px outset var(--primary);
   display: flex;
   gap: var(--spacing-medium);
@@ -13,7 +14,6 @@
   background-color: var(--bluedark);
   box-shadow: 4px 7px 10px 3px var(--graydark);
   position: relative;
-  height: fit-content;
   border-radius: 4px;
 
   .muteButton {
@@ -44,9 +44,21 @@
     flex-wrap: wrap;
   }
 
+  .score {
+    color: var(--blue);
+    font-size: 18px;
+  }
+
   .finishedButtons {
     display: flex;
     gap: var(--spacing-small);
   }
- 
+
+  .countdown {
+    .time {
+      color: var(--primary);
+      margin-top: var(--spacing-XLarge);
+      font-size: 70px;
+    }
+  }
 }

@@ -4,9 +4,21 @@ import InfoCard from "../components/InfoCard";
 import useKeyboardGame from "./useKeyboardGame";
 
 export default function KeyboardGame() {
-  const { isMobile } = useKeyboardGame();
+  const { isIntroduction, isMobile } = useKeyboardGame();
 
   return (
-    <main className={styles.main}>{isMobile ? <InfoCard /> : <Board />}</main>
+    <main className={styles.main}>
+      {isIntroduction ? (
+        <img
+          className={styles.logo}
+          src="/images/ninja.svg"
+          alt="Ninja de capuz"
+        />
+      ) : isMobile ? (
+        <InfoCard />
+      ) : (
+        <Board />
+      )}
+    </main>
   );
 }
