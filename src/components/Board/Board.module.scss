@@ -1,6 +1,6 @@
 .boardWrapper {
-  max-width: 480px;
-  width: 480px;
+  max-width: 500px;
+  width: 500px;
   border: 1px outset var(--primary);
   display: flex;
   gap: var(--spacing-medium);
@@ -9,12 +9,18 @@
   flex-wrap: wrap;
   flex-direction: column;
   color: white;
-  padding: var(--spacing-large);
+  padding: var(--spacing-XLarge);
   background-color: var(--bluedark);
   box-shadow: 4px 7px 10px 3px var(--graydark);
   position: relative;
   height: fit-content;
   border-radius: 4px;
+
+  .muteButton {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
 
   .logo {
     top: -93px;
@@ -38,7 +44,9 @@
     flex-wrap: wrap;
   }
 
-  .cancelButton {
-    margin-right: var(--spacing-medium);
+  .finishedButtons {
+    display: flex;
+    gap: var(--spacing-small);
   }
+ 
 }

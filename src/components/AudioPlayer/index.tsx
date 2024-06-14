@@ -1,6 +1,12 @@
-function AudioPlayer({ soundEffect }: Readonly<{ soundEffect: string }>) {
+type TAudioPlayer = Readonly<{
+  soundEffect: string;
+  muted?: boolean;
+  loop?: boolean;
+}>;
+
+function AudioPlayer({ soundEffect, muted, loop = false }: TAudioPlayer) {
   return (
-    <audio autoPlay>
+    <audio autoPlay muted={muted} loop={loop}>
       <source src={`/audios/${soundEffect}`} type="audio/mp3" />
     </audio>
   );

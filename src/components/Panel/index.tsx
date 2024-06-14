@@ -7,6 +7,7 @@ import Button from "../Button";
 import AudioPlayer from "../AudioPlayer";
 
 function Panel({
+  audioStatus,
   timeDifficulty,
   status,
   changeStatus,
@@ -36,7 +37,7 @@ function Panel({
                 {caracter}
               </span>
               {typedCharacters[key] && (
-                <AudioPlayer soundEffect="next.mp3" />
+                <AudioPlayer soundEffect="next.mp3" muted={audioStatus} />
               )}
             </>
           );
