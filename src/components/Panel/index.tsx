@@ -37,7 +37,7 @@ function Panel({
                 {caracter}
               </span>
               {typedCharacters[key] && (
-                <AudioPlayer soundEffect="next.mp3" muted={audioStatus} />
+                <AudioPlayer sound="next" muted={audioStatus} volume={0.5} />
               )}
             </>
           );

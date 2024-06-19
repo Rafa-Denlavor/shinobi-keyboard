@@ -16,6 +16,12 @@
   position: relative;
   border-radius: 4px;
 
+  .musicButton {
+    position: absolute;
+    right: 40px;
+    top: 15px;
+  }
+
   .muteButton {
     position: absolute;
     right: 15px;
