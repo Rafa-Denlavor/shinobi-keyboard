@@ -9,7 +9,7 @@ import { difficultyLabel } from "./helpers/difficultyLabel";
 import Countdown from "react-countdown";
 
 function Board() {
-  const [toggleMusic, setToggleMusic] = useState(true);
+  const [hasMusic, setHasMusic] = useState(true);
   const [score, setScore] = useState<number>(0);
   const [status, setStatus] = useState<string>(Status.INITIAL);
   const [toggleMute, setToggleMute] = useState(false);
@@ -24,7 +24,7 @@ function Board() {
   };
 
   const handleMusic = () => {
-    setToggleMusic(!toggleMusic);
+    setHasMusic(!hasMusic);
   };
 
   return (
@@ -33,7 +33,7 @@ function Board() {
         <Button
           customClass={styles.musicButton}
           onClick={handleMusic}
-          icon={toggleMusic ? "music-off.svg" : "music-up.svg"}
+          icon={hasMusic ? "music-up.svg" : "music-off.svg"}
         />
         <Button
           customClass={styles.muteButton}
@@ -41,14 +41,18 @@ function Board() {
           icon={toggleMute ? "sound-off.svg" : "sound-up.svg"}
         />
       </div>
-
       <img
         className={styles.logo}
         src="/images/ninja.svg"
         alt="Ninja de capuz"
       />
       <h1>Shinobi Keyboard</h1>
-      <AudioPlayer sound="ambient" muted={toggleMusic} loop={true} />
+      <AudioPlayer
+        sound="ambient-2"
+        muted={!hasMusic}
+        loop={true}
+        volume={0.5}
+      />
       {status === Status.INITIAL && (
         <>
           <p>
