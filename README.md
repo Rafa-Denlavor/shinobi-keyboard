@@ -11,11 +11,20 @@ Minigame de digitação.
 3. Se o jogador pressionar a tecla correta, a próxima tecla da sequência deve ser destacada.
 4. Se o jogador pressionar a tecla errada ou o tempo acabar, o jogo deve terminar e o jogador deve ser notificado.
 
-## Requisitos:
+## Requisitos iniciais:
 
 - A tela principal deve exibir a sequência atual de teclas que o jogador precisa pressionar.
 - Um indicador de tempo deve mostrar quanto tempo resta para completar a sequência.
 - Feedback visual para indicar se a tecla pressionada foi correta ou não.
+
+## Funcionalidade extras:
+
+- Níveis de dificuldade
+- Contagem regressiva antes de iniciar
+- Pontuação
+- Música e efeitos sonoros em boa parte da gameplay
+- Botões para ativar e desativar música e os efeitos sonoros
+- Animação simples ao acessar o minigame
 
 ## Pontos técnicos:
 
