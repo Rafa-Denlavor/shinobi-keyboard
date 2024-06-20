@@ -66,8 +66,8 @@ function usePanel({
   }, [handleKeyDown]);
 
   useEffect(() => {
-    let intervalId: number | undefined;
-    let timeoutId: number | undefined;
+    let intervalId: any;
+    let timeoutId: any;
 
     if (status === Status.PLAYING) {
       intervalId = setInterval(() => {
